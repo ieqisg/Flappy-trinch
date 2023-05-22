@@ -106,8 +106,10 @@ function update() {
     context.font="45px sans-serif";
     context.fillText(score, 5, 45);
 
+let tequila = new Audio('tequila.mp3')
     if (gameOver) {
         context.fillText("GAME OVER", 5, 90);
+        tequila.play()
         
         
     }
@@ -147,6 +149,7 @@ function placePipes() {
 
 function button() {
     velocityY = -6
+    
 
     if (gameOver) {
         bird.y = birdY;
@@ -155,18 +158,22 @@ function button() {
         gameOver = false;
     }
 }
+let gameoveraudio = new Audio('ako.mp3');
+
 
 function moveBird(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
         velocityY = -6;
-
+        
         //reset game
         if (gameOver) {
             bird.y = birdY;
             pipeArray = [];
             score = 0;
             gameOver = false;
+            
+            
         }
     }
 }
