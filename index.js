@@ -108,6 +108,7 @@ function update() {
 
     if (gameOver) {
         context.fillText("GAME OVER", 5, 90);
+        
     }
 }
 
@@ -143,8 +144,19 @@ function placePipes() {
     pipeArray.push(bottomPipe);
 }
 
+function button() {
+    velocityY = -6
+
+    if (gameOver) {
+        bird.y = birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
+    }
+}
+
 function moveBird(e) {
-    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX" || e.type == "touchstart") {
+    if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
         //jump
         velocityY = -6;
 
